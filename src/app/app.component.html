@@ -1,0 +1,12 @@
+<!-- <h1>jay shree ram</h1> -->
+<app-header (addEmployeeEvent)="handleAddEmployeeEvent()"></app-header>
+<div *ngIf="showModal">
+  <app-add-employee (cancleEvent)="handleCancleEvent()"></app-add-employee>
+</div>
+<app-employee-list (editEvent)="onEditClick($event)"></app-employee-list>
+
+<app-edit-employee
+  *ngIf="editModal"
+  (cancleButtonEvent)="onCancleClick()"
+  [employee]="selectedEmployeeToEdit"
+></app-edit-employee>

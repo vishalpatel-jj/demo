@@ -1,0 +1,110 @@
+<div class="modal fade show d-block">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title">Add new Employee</h1>
+        <button class="btn-close" (click)="cancleButtonClick()"></button>
+      </div>
+      <form (ngSubmit)="onFormSubmission()">
+        <div class="modal-body">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            name="text"
+            id="name"
+            class="form-control"
+            [(ngModel)]="name"
+          />
+          <label for="number">Number:</label>
+          <input
+            type="number"
+            name="number"
+            id="number"
+            class="form-control"
+            [(ngModel)]="number"
+          />
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            [(ngModel)]="email"
+          />
+          <label for="position">position:</label>
+          <input
+            type="text"
+            name="position"
+            id="position"
+            class="form-control"
+            [(ngModel)]="position"
+          />
+          <label>Gender : </label>
+          <label for="male">Male</label
+          ><input
+            type="radio"
+            name="gender"
+            id="male"
+            value="male"
+            [(ngModel)]="gender"
+          />
+          <label for="female">female</label>
+          <input
+            type="radio"
+            name="gender"
+            id="female"
+            value="female"
+            [(ngModel)]="gender"
+          />
+          <br />
+          <label for="aadhar">Aadhar number:</label>
+          <input
+            type="text"
+            name="aadhar"
+            id="aadhar"
+            class="form-control"
+            [(ngModel)]="aadharNumber"
+          />
+          <label for="address">Address:</label>
+          <textarea
+            name="address"
+            id="address"
+            class="form-control"
+            [(ngModel)]="address"
+          ></textarea>
+          <!-- <label for="country" class="form-control">country</label> -->
+          <select
+            name="state"
+            id="state"
+            [(ngModel)]="statee"
+            (change)="onStateChange(state.value)"
+            #state
+          >
+            <option selected disabled>select state</option>
+            @for (state of states; track state) {
+              <option [value]="state">{{ state }}</option>
+            }
+          </select>
+          <select name="city" id="city" [(ngModel)]="city">
+            <option disabled>select a city</option>
+            @if (selectedStateCities) {
+              @for (city of selectedStateCities; track city) {
+                <option [value]="city">{{ city }}</option>
+              }
+            }
+          </select>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="cancleButtonClick()"
+          >
+            cancle
+          </button>
+          <button type="submit" class="btn btn-primary">submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
